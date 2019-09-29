@@ -38,10 +38,10 @@ final class HttpRequest implements Runnable
     public void run()
     {
         try {
-            System.out.println("NEW");
+            System.out.println("NEW HttpRequest!");
             processRequest();
         } catch (Exception e) {
-            System.out.println("66666666666666");
+            e.printStackTrace();
         }
     }
 
@@ -95,12 +95,6 @@ final class HttpRequest implements Runnable
         // Send the status line.
         os.writeBytes(statusLine);
         // Send the content type line.
-        os.writeBytes(contentTypeLine);
-
-        System.out.println("======================================================================");
-        System.out.print(statusLine);
-        System.out.print(contentTypeLine);
-        System.out.println("======================================================================");
 
         // Send a blank line to indicate the end of the header lines.
         os.writeBytes(CRLF);
